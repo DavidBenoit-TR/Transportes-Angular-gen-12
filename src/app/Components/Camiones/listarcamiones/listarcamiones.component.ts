@@ -19,4 +19,6 @@ export class ListarcamionesComponent {
   get listCamiones() {
     return this.service.listacamiones;
   }
+
+  eliminarCamion(id: any) {}
 }
