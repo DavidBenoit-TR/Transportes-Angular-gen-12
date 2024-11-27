@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CamionesService } from '../../../Services/camiones.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listarcamiones',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './listarcamiones.component.html',
   styleUrl: './listarcamiones.component.css',
 })

@@ -1,1 +1,68 @@
-<p>listarcamiones works!</p>
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col">
+      <div class="h-1 bg-gray-800 rounded overflow-hidden">
+        <div class="w-24 h-full bg-green-500"></div>
+      </div>
+      <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
+        <h1
+          class="sm:w-2/5 text-white font-medium title-font text-2xl mb-2 sm:mb-0"
+        >
+          Space The Final Frontier
+        </h1>
+        <p class="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">
+          Street art subway tile salvia four dollar toast bitters selfies quinoa
+          yuccie synth meditation iPhone intelligentsia prism tofu. Viral
+          gochujang bitters dreamcatcher.
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+      <!-- Por cada camión, creo una tarjeta -->
+      <!-- directiva ngFor sirve para recorrer la lista de camiones -->
+      <!-- esta directiva funciona como un foreach, donde recorrera cada elemento existente dentro de la lista de camiones y hará un código HTML -->
+      <div
+        *ngFor="let camion of listCamiones"
+        class="p-4 md:w-1/3 sm:mb-0 mb-6"
+      >
+        <div class="rounded-lg h-64 overflow-hidden">
+          <img
+            alt="content"
+            class="object-cover object-center h-full w-full"
+            src="https://dummyimage.com/1203x503"
+          />
+        </div>
+        <h2 class="text-xl font-medium title-font text-white mt-5">
+          Matrícula: {{ camion.matricula }}
+        </h2>
+        <p class="text-base leading-relaxed mt-2">Marca: {{ camion.marca }}</p>
+        <p class="text-base leading-relaxed mt-2">
+          Modelo: {{ camion.modelo }}
+        </p>
+        <p class="text-base leading-relaxed mt-2">
+          Cap.: {{ camion.capacidad }}
+        </p>
+        <p class="text-base leading-relaxed mt-2">
+          Km: {{ camion.kilometraje }}
+        </p>
+
+        <span class="inline-flex">
+          <!-- la directiva ngIf funciona como un if normal, en función de una evaluación, genera o no un fragmento HTML -->
+          <div *ngIf="camion.disponibilidad">
+            <div class="flex">
+              <div class="h-4 w-2.5 rounded-full bg-green-500 mr-2"></div>
+              <span class="text-gray-500 mr-2">Disponible</span>
+            </div>
+          </div>
+
+          <div *ngIf="!camion.disponibilidad">
+            <div class="inline-flex">
+              <div class="h-4 w-2.5 rounded-full bg-red-500 mr-2"></div>
+              <span class="text-gray-500 mb-3">No Disponible</span>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
